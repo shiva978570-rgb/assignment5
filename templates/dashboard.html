@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Diagnose</title>
+</head>
+
+<body style="text-align:center">
+
+<h1>Thyroid Diagnostic System</h1>
+
+<form method="POST" action="{{ url_for('dashboard') }}">
+
+Age<br>
+<input type="number" name="age"><br><br>
+
+Sex<br>
+<select name="sex">
+<option value="M">Male</option>
+<option value="F">Female</option>
+</select>
+
+<br><br>
+
+TSH<br>
+<input type="number" step="any" name="tsh"><br><br>
+
+T3<br>
+<input type="number" step="any" name="t3"><br><br>
+
+TT4<br>
+<input type="number" step="any" name="tt4"><br><br>
+
+T4U<br>
+<input type="number" step="any" name="t4u"><br><br>
+
+FTI<br>
+<input type="number" step="any" name="fti"><br><br>
+
+<button type="submit">Run Diagnosis</button>
+
+</form>
+
+<br><br>
+
+{% if result %}
+
+<h2>Diagnosis Result</h2>
+
+<p>{{ result.label }}</p>
+
+<p>Confidence: {{ result.confidence }}%</p>
+
+{% endif %}
+
+</body>
+</html>
